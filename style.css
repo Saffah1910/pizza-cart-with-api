@@ -1,0 +1,63 @@
+/* @font-face {
+    font-family: pizzafont;
+    src: url(../OrderPizza-97J2.ttf);
+} */
+body{
+    background-color:#264653;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+h1{
+    text-align: center;
+    color: white;
+    font-family: pizzafont;
+}
+.shoppingCart{
+    background-color: #2a9d8f;
+    text-align: center;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+}
+
+.pizza{    
+    border: 1px solid black;
+    padding: 0.5;
+    margin: 0.5em;
+    width: 20em;
+    /* margin-bottom: 0.5em; */
+    border-radius: 0.5em;
+    text-align: center;
+    background-color:#84a59d;
+    display: inline-block;
+   
+
+
+}
+.small{
+    background-color:#e9c46a;
+    flex:1;
+
+}
+.medium{
+    background-color:#f4a261;
+    flex:1;
+}
+   
+.large{
+    background-color: #e76f51;
+    flex:1;
+}
+.contact-info{
+    background-color: #2a9d8f;
+    
+   
+}
+@media(min-width:960px){
+    .pizzas{
+        display: flex;
+    }
+    
+} 

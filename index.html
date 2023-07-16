@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaCart-API</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body x-data="pizzaCart">
+
+
+    <h1 x-text="title"></h1>
+
+    <div class="shoppingCart" x-show="opencart">
+        <h2>Shopping cart</h2>
+        <p>Small
+            <button @click="smallplus"><span>+</span></button>
+            <button @click="smallminus"><span>-</span></button>
+            <span x-text="smallpizzacount.toFixed(2)"></span>
+        </p>
+        <p>Medium
+            <button @click="mediumplus"><span>+</span></button>
+            <button @click="mediumminus"><span>-</span></button>
+            <span x-text="mediumpizzacount.toFixed(2)"></span>
+        </p>
+        <p>Large
+            <button @click="largeplus"><span>+</span></button>
+            <button @click="largeminus"><span>-</span></button>
+            <span x-text="largepizzacount.toFixed(2)"></span>
+        </p>
+        <p>Total Cost : R <span x-text="total.toFixed(2)"></span></p>
+        <p>Total Cost : R <span x-text="carttotal"></span></p>
+
+        <p style="color: green;font-weight: bold;" x-text="successmessage" x-show="paymessage"></p>
+        <p style="color: red;font-weight: bold" x-text="failuremessage" x-show="paymessage"></p>
+        <div x-show="openpay">Payment amount: <input x-model="payment">
+            <button @click="enoughmoney">PAY</button>
+        </div>
+
+        <button x-on:click="paybutton" x-show="opencheckout">Checkout</button>
+
+        <template x-for="pizza in pizzas">
+            <tr>
+                <td> flavour 2</td>
+                <td>small</td>
+                <td>57.88</td>
+                <td>
+                    <button>+</button>
+                    x<span>3</span>
+                    <button>-</button>
+                </td>
+                <td>300</td>
+y
+            </tr>
+        </template>
+    </div>
+
+
+
+    <div class="pizzas">
+
+
+        <div class="pizza small">
+            <h2>Small Pizza</h2>
+            <img src="pizzaPic.png" width="150">
+            <h3>R49.99</h3>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et
+                dolore
+                magna aliqua.
+            </div>
+            <button @click="buyPizza">Add</button>
+        </div>
+
+        <div class="pizza medium">
+            <h2>Medium Pizza</h2>
+            <img src="pizzaPic.png" width="150">
+            <h3>R89.99</h3>
+            <div>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+            </div>
+            <button @click="buyMediumPizza">Add</button>
+        </div>
+
+        <div class="pizza large">
+            <h2>Large Pizza</h2>
+            <img src="pizzaPic.png" width="150">
+            <h3>R120.99</h3>
+            <div>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur.
+            </div>
+            <button @click="buyLargePizza">Add</button>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+    <div class="allPizzas">
+        <template x-for="pizza in pizzas">
+            <div class="pizza">
+                <h5 x-text="pizza.flavour"></h5>
+                <span x-text="pizza.size"></span><br>
+                <span x-text="pizza.price"></span><br>
+                <button>BUY</button>
+            </div>
+        </template>
+    </div>
+
+    <div class="pizza contact-info">
+        <h2>Contact us</h2>
+        Number: 123459789 email:info@123.com
+    </div>
+</body>
+<script src="./pizza.js"></script>
+
+</html>
