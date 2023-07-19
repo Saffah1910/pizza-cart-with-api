@@ -1,10 +1,15 @@
-/* @font-face {
+@font-face {
     font-family: pizzafont;
     src: url(../OrderPizza-97J2.ttf);
-} */
+}
 body{
-    background-color:#264653;
+    background-color:#121414;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url(./bg.avif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+
    
 }
 h1{
@@ -13,7 +18,7 @@ h1{
     font-family: pizzafont;
 }
 .shoppingCart{
-    background-color: #2a9d8f;
+    background-color: #8f5331;
     text-align: center;
     border: 1px solid black;
     padding: 1em;
@@ -24,14 +29,15 @@ h1{
 
 .pizza{    
     border: 1px solid black;
-    padding: 0.5;
-    margin: 0.5em;
-    width: 20em;
+    /* padding: 0.5; */
+    margin: 1em;
+    width: 13em;
     /* margin-bottom: 0.5em; */
     border-radius: 0.5em;
     text-align: center;
-    background-color:#84a59d;
+    background-color:#606e6b;
     display: inline-block;
+    justify-content: center;
    
 
 

@@ -22,7 +22,7 @@ content-type: application/json
 
 {
 	"cart_code" : "6o9Pu4u8zB",
-	"pizza_id" : 3
+	"pizza_id" : 15
 }
 
 ### Add a pizza to the cart
@@ -32,7 +32,7 @@ content-type: application/json
 
 {
 	"cart_code" : "6o9Pu4u8zB",
-	"pizza_id" : 11
+	"pizza_id" : 15
 }
 
 ### Remove a pizza from the cart
@@ -42,7 +42,7 @@ content-type: application/json
 
 {
 	"cart_code" : "6o9Pu4u8zB",
-	"pizza_id" : 3
+	"pizza_id" : 1
 }
 
 ### GET all the carts for a given user

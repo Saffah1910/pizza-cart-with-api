@@ -8,99 +8,60 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        [x-cloak]{
+            display: none;
+        }
+    </style>
 
 </head>
 
 <body x-data="pizzaCart">
 
 
-    <h1 x-text="title"></h1>
+    <h1 x-text="title">Y</h1>
 
-    <div class="shoppingCart" x-show="opencart">
-        <h2>Shopping cart</h2>
-        <p>Small
-            <button @click="smallplus"><span>+</span></button>
-            <button @click="smallminus"><span>-</span></button>
-            <span x-text="smallpizzacount.toFixed(2)"></span>
-        </p>
-        <p>Medium
-            <button @click="mediumplus"><span>+</span></button>
-            <button @click="mediumminus"><span>-</span></button>
-            <span x-text="mediumpizzacount.toFixed(2)"></span>
-        </p>
-        <p>Large
-            <button @click="largeplus"><span>+</span></button>
-            <button @click="largeminus"><span>-</span></button>
-            <span x-text="largepizzacount.toFixed(2)"></span>
-        </p>
-        <p>Total Cost : R <span x-text="total.toFixed(2)"></span></p>
-        <p>Total Cost : R <span x-text="carttotal"></span></p>
+    <div class="shoppingCart">
+        
+<h2>Your Cart</h2>
+<div class="message" x-text="message"></div>
+<div>Cart code :<span x-text="cardID"></span></div>
+    <table>
+        <tr>
+            <th>flavour</th>
+            <th>size</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+        </tr>
 
-        <p style="color: green;font-weight: bold;" x-text="successmessage" x-show="paymessage"></p>
-        <p style="color: red;font-weight: bold" x-text="failuremessage" x-show="paymessage"></p>
-        <div x-show="openpay">Payment amount: <input x-model="payment">
-            <button @click="enoughmoney">PAY</button>
-        </div>
-
-        <button x-on:click="paybutton" x-show="opencheckout">Checkout</button>
-
-        <template x-for="pizza in pizzas">
+        <template x-for="pizza in cartPizzas">
+         
             <tr>
-                <td> flavour 2</td>
-                <td>small</td>
-                <td>57.88</td>
+                <td x-text="pizza.flavour"></td>
+                <td x-text="pizza.size"></td>
+                <td x-text="pizza.price.toFixed(2)"></td>
                 <td>
-                    <button>+</button>
-                    x<span>3</span>
-                    <button>-</button>
+                    <button class="operation" @click="addPizzaToCart(pizza.id)">+</button>
+                    <span x-text="pizza.qty"></span>
+                    <button class="operation" @click="removePizzaFromCart(pizza.id)">-</button>
                 </td>
-                <td>300</td>
-y
+                <td x-text="pizza.total.toFixed(2)"></td>
             </tr>
         </template>
-    </div>
-
-
-
-    <div class="pizzas">
-
-
-        <div class="pizza small">
-            <h2>Small Pizza</h2>
-            <img src="pizzaPic.png" width="150">
-            <h3>R49.99</h3>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et
-                dolore
-                magna aliqua.
-            </div>
-            <button @click="buyPizza">Add</button>
-        </div>
-
-        <div class="pizza medium">
-            <h2>Medium Pizza</h2>
-            <img src="pizzaPic.png" width="150">
-            <h3>R89.99</h3>
-            <div>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.
-            </div>
-            <button @click="buyMediumPizza">Add</button>
-        </div>
-
-        <div class="pizza large">
-            <h2>Large Pizza</h2>
-            <img src="pizzaPic.png" width="150">
-            <h3>R120.99</h3>
-            <div>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur.
-            </div>
-            <button @click="buyLargePizza">Add</button>
-        </div>
-    </div>
-
+        <tr>
+            <td >Total</td>
+            <td >R <span x-text="carttotal.toFixed(2)"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Pay Now</td>
+            <td>
+                <input x-model="paymentAmount">
+            </td>
+            <td><button class="pay" @click="payForCart()">Pay</button></td>
+        </tr>
+    </table>
 
     </div>
 
@@ -110,9 +71,10 @@ y
         <template x-for="pizza in pizzas">
             <div class="pizza">
                 <h5 x-text="pizza.flavour"></h5>
+                <img src="./pizzaPic.png" width="80"><br>
                 <span x-text="pizza.size"></span><br>
                 <span x-text="pizza.price"></span><br>
-                <button>BUY</button>
+                <button @click="addPizzaToCart(pizza.id)">BUY</button>
             </div>
         </template>
     </div>
