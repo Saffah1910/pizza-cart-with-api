@@ -64,3 +64,13 @@ content-type: application/json
 	"amount" : 200
 }
 
+### set Features
+POST https://pizza-api.projectcodex.net/api/pizzas/featured
+content-type: application/json
+
+{
+	"username" : "username_here",
+	"pizza_id" : 7
+}
+### get features
+GET https://pizza-api.projectcodex.net/api/pizzas/featured?username=username_here
