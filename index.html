@@ -21,8 +21,8 @@
 
     <h1 x-text="title"></h1>
     <div class="login">
-        <div style="color: aliceblue;">
-            Username:<input type="text" x-model="username">
+        <div>
+           <p  style="color:white;"> Username:</p><input type="text" x-model="username">
             <button @click="login" x-show="!cardID">Login</button>
             <button @click="logout" x-show="username && cardID">Logout</button>
         </div>
@@ -34,14 +34,14 @@
 
     <div class="shoppingCart" x-show="carttotal > 0">
 
-        <h2>Your Cart</h2>
+        <h3>Your Cart</h3>
         <div style="color: green;" x-text="successmessage"></div>
         <div style="color: red;" x-text="failuremessage"></div>
         <!-- <div x-text="messages()">hel</div> -->
         <!-- class="successmessage"  -->
         <table>
             <tr>
-                <th></th>
+                
                 <th>Flavour</th>
                 <th>Size</th>
                 <th>Price</th>
@@ -52,7 +52,7 @@
             <template x-for="pizza in cartPizzas">
 
                 <tr>
-                    <td><img src="./pizzaPic.png" width="20%"></td>
+                    <!-- <td><img src="./pizzaPic.png" width="20%"></td> -->
                     <td x-text="pizza.flavour"></td>
                     <td x-text="pizza.size"></td>
                     <td x-text="pizza.price.toFixed(2)"></td>
@@ -64,18 +64,18 @@
                     <td x-text="pizza.total.toFixed(2)"></td>
                 </tr>
             </template>
-            <tr>
-                <td>Total Amount :</td>
-                <td>R <span x-text="carttotal.toFixed(2)"></span>
+            <tr >
+                <td colspan="4" style="text-align: right;">Total Amount :</td>
+                <td colspan="0"  style="text-align: center;">R <span x-text="carttotal.toFixed(2)"></span>
                 </td>
             </tr>
             <br>
             <tr>
 
-                <td>
+                <td colspan="4" style="text-align: right;">
                     <input x-model="paymentAmount">
                 </td>
-                <td><button class="pay" @click="payForCart()">Pay</button></td>
+                <td colspan="4"><button class="pay" @click="payForCart()">Pay</button></td>
             </tr>
         </table>
 

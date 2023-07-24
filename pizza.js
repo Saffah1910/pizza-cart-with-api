@@ -27,6 +27,7 @@ function Pizzacart() {
                 this.cardID = '';
                 localStorage['cardId'] = '';
                 localStorage['username'] = '';
+                this.carttotal = '';
 
 
             }
@@ -152,7 +153,7 @@ function Pizzacart() {
                     }
                     else {
 
-                        this.successmessage = "Payment recieved enjoy you meal !!";
+                        this.successmessage = "Payment recieved enjoy your meal !!";
                      
 
                         setTimeout(() => {
@@ -160,7 +161,7 @@ function Pizzacart() {
                             this.cartPizzas = [];
                             this.carttotal = 0.00;
                             localStorage['cardId'] = '';
-                            localStorage['username'] = ''
+                            localStorage['username'] = '';
                             this.paymentAmount = 0;
                             this.cardID = '';
                             this.username = ''
@@ -171,7 +172,7 @@ function Pizzacart() {
                     }
                 })
         },
-        
+
     
 
 
